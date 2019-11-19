@@ -28,20 +28,18 @@ function filterNull(o) {
 
 //接口处理函数
 function apiAxios(method, url, params, success, failure) {
-    if (params) {
-        params = filterNull(params)
-    }
-
+    // if (params) {
+    //     params = filterNull(params)
+    // }
     axios({
             method: method,
             url: url,
-            data: method == 'POST' || method == 'POST' ? params : null,
+            data: method == 'POST' || method == 'PUT' ? params : null,
             params: method === 'GET' || method === 'DELETE' ? params : null,
             baseURL: root,
             withCredentials: false
         })
         .then(function(res) {
-            console.log(res.data.success);
             if (res.data.success === true) {
                 if (success) {
                     success(res.data)
