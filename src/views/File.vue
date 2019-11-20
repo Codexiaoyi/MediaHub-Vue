@@ -17,9 +17,8 @@
                             {{ data.index + 1 }}
                           </template>
 <template v-slot:cell(actions)="data">
-                    <b-button size="sm" variant="danger" @click="deleteFile(data.item.id)">
-                        删除
-                    </b-button>
+                    <b-button size="sm" variant="danger" @click="deleteFile(data.item.id)">删除</b-button>
+                    <b-button size="sm" variant="success" @click="downloadFile(data.item.id)">下载</b-button>
                 </template>
 <template v-slot:cell(fileName)="data">
                     {{data.item.fileName}}
@@ -75,6 +74,14 @@
                         this.items = r.result
                     })
                 })
+            },
+            downloadFile(id) {
+                // this.$api.get('file/download?id=' + id, null, r => {
+                //         console.log(r)
+                //         Window.
+                //             //window.location.href = 'file/download';
+                //     })
+                window.location.href = 'http://localhost:5000/api/file/download?id=' + id;
             }
         },
         beforeCreate() {
