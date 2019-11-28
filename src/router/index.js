@@ -23,6 +23,16 @@ const routes = [{
         path: '/file',
         name: 'file',
         component: File
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Home
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Home
     }
 ]
 
