@@ -15,7 +15,6 @@ variables:
   imageName: mediahub-vue                        # 阿里云 仓库名称
   registry: registry.cn-hangzhou.aliyuncs.com   # 阿里云 公网地址
   dockerfilepath: Dockerfile       # Github Dockerfile相对路径
-  pwd: 
 
 steps:
 - script: |
