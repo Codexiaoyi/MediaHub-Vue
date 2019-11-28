@@ -79,7 +79,7 @@ export default {
       //         Window.
       //             //window.location.href = 'file/download';
       //     })
-      window.location.href = "http://localhost:5000/api/file/download?id=" + id;
+      window.location.href = "http://47.106.139.187:5003/api/file/download?id=" + id;
     }
   },
   beforeCreate() {

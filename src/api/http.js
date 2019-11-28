@@ -1,5 +1,5 @@
 //配置API接口地址
-var root = 'http://localhost:5000/api'
+var root = 'http://47.106.139.187:5003/api'
 
 //引用axios
 var axios = require('axios')
