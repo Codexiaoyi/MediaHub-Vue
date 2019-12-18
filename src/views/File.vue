@@ -65,8 +65,7 @@ export default {
       });
     },
     deleteFile(id) {
-      let sendId = id;
-      this.$api.delete("file/delete", sendId, r => {
+      this.$api.delete("file/delete?id=" + id, null, r => {
         alert("删除成功");
         this.$api.get("file/files", null, r => {
           this.items = r.result;
@@ -79,7 +78,7 @@ export default {
       //         Window.
       //             //window.location.href = 'file/download';
       //     })
-      window.location.href = "http://47.106.139.187:5003/api/file/download?id=" + id;
+      window.location.href = this.$api.getRoot() + "/file/download?id=" + id;
     }
   },
   beforeCreate() {
@@ -94,7 +93,7 @@ export default {
 .file {
   margin: 20px 100px;
 }
-.file_table{
+.file_table {
   margin-top: 20px;
 }
 </style>
