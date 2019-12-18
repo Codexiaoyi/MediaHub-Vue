@@ -14,8 +14,8 @@
       <b-table striped hover :items="items" :fields="fields">
         <template v-slot:cell(index)="data">{{ data.index + 1 }}</template>
         <template v-slot:cell(actions)="data">
-          <b-button size="sm" variant="danger" @click="deleteFile(data.item.id)">删除</b-button>
           <b-button size="sm" variant="success" @click="downloadFile(data.item.id)">下载</b-button>
+          <b-button class="ml-2" size="sm" variant="danger" @click="deleteFile(data.item.id)">删除</b-button>
         </template>
         <template v-slot:cell(fileName)="data">{{ data.item.fileName }}</template>
         <template v-slot:cell(fileSize)="data">{{ data.item.fileSize }}</template>
@@ -92,7 +92,7 @@ export default {
 
 <style>
 .file {
-  margin: 20px 50px;
+  margin: 20px 100px;
 }
 .file_table{
   margin-top: 20px;

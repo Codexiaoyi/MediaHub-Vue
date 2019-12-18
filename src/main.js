@@ -2,14 +2,11 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import 'element-ui/lib/theme-chalk/index.css'
-import ElementUI from 'element-ui'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 
 Vue.use(BootstrapVue)
-Vue.use(ElementUI)
     //引用api文件
 import api from './api/http.js'
 //姜api方法绑定到全局
