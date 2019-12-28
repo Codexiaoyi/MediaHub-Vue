@@ -1,15 +1,6 @@
 <template>
   <div class="file">
-    <b-container>
-      <b-row>
-        <b-col cols="8">
-          <b-form-file v-on:change="getFile($event)" browse-text="选择文件" placeholder="请选择需要上传的文件..."></b-form-file>
-        </b-col>
-        <b-col cols="4">
-          <b-button variant="success" v-on:click="submitForm($event)">上传</b-button>
-        </b-col>
-      </b-row>
-    </b-container>
+    <FileUpload v-on:successNotify="refreshItems"></FileUpload>
     <div class="file_table">
       <b-table striped hover :items="items" :fields="fields">
         <template v-slot:cell(index)="data">{{ data.index + 1 }}</template>
@@ -25,11 +16,14 @@
 </template>
 
 <script>
+import FileUpload from "@/components/FileUpload.vue";
+
 export default {
   data() {
     return {
       notice: "",
       items: [],
+      uploadProgress: "0",
       fields: [
         {
           key: "index",
@@ -51,18 +45,13 @@ export default {
     };
   },
   methods: {
-    getFile(event) {
-      this.file = event.target.files[0];
-    },
-    submitForm(event) {
-      event.preventDefault();
-      let formData = new FormData();
-      formData.append("file", this.file);
-      this.$api.post("file/upload", formData, r => {
+    refreshItems(isSuccess) {
+      //当文件上传组件返回成功的时候才执行刷新界面操作
+      if (isSuccess) {
         this.$api.get("file/files", null, r => {
           this.items = r.result;
         });
-      });
+      }
     },
     deleteFile(id) {
       this.$api.delete("file/delete?id=" + id, null, r => {
@@ -73,11 +62,6 @@ export default {
       });
     },
     downloadFile(id) {
-      // this.$api.get('file/download?id=' + id, null, r => {
-      //         console.log(r)
-      //         Window.
-      //             //window.location.href = 'file/download';
-      //     })
       window.location.href = this.$api.getRoot() + "/file/download?id=" + id;
     }
   },
@@ -85,6 +69,9 @@ export default {
     this.$api.get("file/files", null, r => {
       this.items = r.result;
     });
+  },
+  components: {
+    FileUpload
   }
 };
 </script>
