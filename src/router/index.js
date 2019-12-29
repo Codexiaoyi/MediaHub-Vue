@@ -10,6 +10,11 @@ Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
+    name:'default',
+    redirect: '/file'
+},
+{
+    path: '/home',
     name: 'home',
     component: Home
 },
@@ -44,7 +49,7 @@ const router = new VueRouter({
     routes
 })
 
- var storeTemp = store;
+var storeTemp = store;
 router.beforeEach((to, from, next) => {
     if (!storeTemp.state.token) {
         storeTemp.commit("saveToken", window.localStorage.Token);
