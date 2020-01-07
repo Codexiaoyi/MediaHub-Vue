@@ -44,10 +44,10 @@ export default {
   methods: {
     //整体上传完成
     complete() {
-      console.log("complete", arguments);
+      //console.log("complete", arguments);
     },
     fileComplete() {
-      console.log("file complete", arguments);
+      //console.log("file complete", arguments);
       const file = arguments[0].file;
       this.$api.post(
         "/file/upload/merge",
@@ -58,7 +58,7 @@ export default {
           type: file.type
         }),
         r => {
-          console.log(r);
+          //console.log(r);
         }
       );
     }
