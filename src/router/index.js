@@ -10,8 +10,8 @@ Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
-    name:'default',
-    redirect: '/file'
+    name: 'default',
+    redirect: '/home'
 },
 {
     path: '/home',

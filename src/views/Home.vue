@@ -2,20 +2,20 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />-->
-    <b-button @click="upload">上传</b-button>
     <b-container fluid class="p-4 bg-dark">
       <b-row>
-        <b-col>
+        <b-col id="imageCol">
           <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=54" alt="Image 1"></b-img-lazy>
-        </b-col>
-        <b-col>
-          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=55" alt="Image 1"></b-img-lazy>
-        </b-col>
-        <b-col>
-          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=56" alt="Image 1"></b-img-lazy>
-        </b-col>
-        <b-col>
+          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=55" alt="Image 2"></b-img-lazy>
+          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=56" alt="Image 3"></b-img-lazy>
           <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=57" alt="Image 1"></b-img-lazy>
+          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=58" alt="Image 1"></b-img-lazy>
+          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=59" alt="Image 1"></b-img-lazy>
+          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=60" alt="Image 1"></b-img-lazy>
+          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=61" alt="Image 1"></b-img-lazy>
+          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=62" alt="Image 1"></b-img-lazy>
+          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=63" alt="Image 1"></b-img-lazy>
+          <b-img-lazy thumbnail fluid src="https://picsum.photos/250/250/?image=64" alt="Image 1"></b-img-lazy>
         </b-col>
       </b-row>
     </b-container>
@@ -59,3 +59,9 @@ export default {
   }
 };
 </script>
+
+<style>
+#imageCol {
+  text-align: center;
+}
+</style>
