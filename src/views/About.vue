@@ -11,7 +11,7 @@
       <p>文件拖放至此处或</p>
       <uploader-btn>选择文件</uploader-btn>
       <uploader-btn :attrs="attrs">选择图片</uploader-btn>
-      <uploader-btn :directory="true">选择文件夹</uploader-btn>
+      <!-- <uploader-btn :directory="true">选择文件夹</uploader-btn> -->
     </uploader-drop>
     <uploader-list></uploader-list>
   </uploader>
@@ -66,9 +66,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .uploader-example {
-  width: 880px;
+  width: 80%;
   padding: 15px;
   margin: 40px auto 0;
   font-size: 12px;
@@ -76,11 +76,27 @@ export default {
 }
 .uploader-example .uploader-btn {
   margin-right: 4px;
+  color: white;
+  background: #8f5ca8;
 }
 .uploader-example .uploader-list {
   max-height: 440px;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: auto;
+}
+/deep/.uploader-file-icon {
+  &:before {
+    content: "" !important;
+  }
+  &[icon="image"] {
+    background: url(./images/image-icon.png);
+  }
+  &[icon="video"] {
+    background: url(./images/video-icon.png);
+  }
+  &[icon="document"] {
+    background: url(./images/text-icon.png);
+  }
 }
 </style>

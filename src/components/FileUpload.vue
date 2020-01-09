@@ -1,11 +1,14 @@
 <template>
   <b-container>
     <b-row>
-      <b-col cols="8">
+      <b-col>
         <b-form-file v-on:change="getFile($event)" browse-text="选择文件" placeholder="请选择需要上传的文件..."></b-form-file>
       </b-col>
-      <b-col cols="4">
+      <b-col cols="1">
         <b-button variant="success" v-on:click="uploadFile($event)">上传</b-button>
+      </b-col>
+      <b-col cols="2">
+        <b-button variant="info" @click="uploadFiles()">批量上传</b-button>
       </b-col>
     </b-row>
     <b-row id="Progress" v-bind:style="{visibility:visibilityParams}">
@@ -42,6 +45,9 @@ export default {
       this.ProgressVisibility(true);
       this.isSuccess = false;
       this.upload(this.file, 0);
+    },
+    uploadFiles() {
+      this.$router.push({ path: "/about" });
     },
     upload(file, i) {
       var name = file.name;
