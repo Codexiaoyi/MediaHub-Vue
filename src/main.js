@@ -11,9 +11,9 @@ import element from 'element-ui'
 Vue.use(BootstrapVue)
 Vue.use(uploader)
 Vue.use(element)
-    //引用api文件
+//引用api文件
 import api from './api/http.js'
-//姜api方法绑定到全局
+//将api方法绑定到全局
 Vue.prototype.$api = api
 
 Vue.config.productionTip = false

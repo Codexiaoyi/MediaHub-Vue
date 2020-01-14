@@ -51,26 +51,16 @@ const router = new VueRouter({
 
 var storeTemp = store;
 router.beforeEach((to, from, next) => {
-    if (!storeTemp.state.token) {
-        storeTemp.commit("saveToken", window.localStorage.Token);
-    }
-    if (to.meta.requireAuth) {
-        // 判断该路由是否需要登录权限
-        if (storeTemp.state.token) {
-            // 通过vuex state获取当前的token是否存在
-            next();
-        } else {
-            //这里使用Id4授权认证，用Jwt，请删之，并把下边的跳转login 打开；
-            // applicationUserManager.login();
-
-            //这里使用Jwt登录，如果不用Id4授权认证，这里打开它；
-            next({
-                path: "/login",
-                query: { redirect: to.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由
-            });
-        }
-    } else {
+    if (to.path === '/login') {
         next();
+    } else {
+        let token = window.localStorage.getItem('Token');
+        if (token === 'null' || token === '') {
+            window.alert("大哥，先登录吧！")
+            next('/login');
+        } else {
+            next();
+        }
     }
 });
 

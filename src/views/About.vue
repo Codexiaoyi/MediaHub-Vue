@@ -58,7 +58,7 @@ export default {
           type: file.type
         }),
         r => {
-          //console.log(r);
+          console.log(r);
         }
       );
     }

@@ -21,7 +21,7 @@
           <b-form-input id="search-input" size="sm" placeholder="搜索"></b-form-input>
         </b-nav-item>
         <b-nav-item>
-          <b-button id="login" size="sm">登录/注册</b-button>
+          <b-button id="login" size="sm" to="/login">{{loginString}}</b-button>
         </b-nav-item>
       </b-navbar-nav>
     </b-navbar>
@@ -31,16 +31,33 @@
 
 <script>
 //import globalUploader from "@/components/globalUploader.vue";
+import store from "../src/store/index.js";
 
 export default {
   name: "app",
   data() {
-    return {};
+    return {
+      loginString: "登录/注册",
+      token: store.token
+    };
   },
   components: {},
   computed: {},
   created() {},
-  watch: {}
+  watch: {
+    // token: {
+    //   handler(newName,oldName){
+    //     if (newName) {
+    //       this.loginString = "登录/注册"
+    //     }
+    //     else
+    //     {
+    //       this.loginString = "登出";
+    //     }
+    //   },
+    //   immediate:true
+    // },
+  }
 };
 </script>
 

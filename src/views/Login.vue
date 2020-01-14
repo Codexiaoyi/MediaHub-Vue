@@ -3,12 +3,12 @@
     <b-container>
       <b-row class="text-right" align-h="center">
         <b-col cols="6">
-          <b-input-group prepend="用户名" class="mt-5">
+          <b-input-group prepend="账号" class="mt-5">
             <b-form-input
               id="input-live"
-              v-model="userName"
-              :state="userNameState"
-              placeholder="用户名不能为空"
+              v-model="userAccount"
+              :state="userAccountState"
+              placeholder="账号不能为空"
             ></b-form-input>
           </b-input-group>
           <b-input-group prepend="密码" class="mt-3">
@@ -31,7 +31,7 @@
 export default {
   data() {
     return {
-      userName: "",
+      userAccount: "",
       userPassword: ""
     };
   },
@@ -39,8 +39,8 @@ export default {
     isLogin: Boolean
   },
   computed: {
-    userNameState() {
-      return this.userName.length > 0 ? true : false;
+    userAccountState() {
+      return this.userAccount.length > 0 ? true : false;
     },
     userPasswordState() {
       return this.userPassword.length >= 6 ? true : false;
@@ -49,14 +49,14 @@ export default {
   methods: {
     confirmLogin() {
       //登录表单提交
-      if (this.userName == "" || this.userPassword == "") {
+      if (this.userAccount == "" || this.userPassword == "") {
         alert("信息错误");
         return;
       }
       //登录请求
       this.$api.get(
         "user/login",
-        { userName: this.userName, userPassword: this.userPassword },
+        { userAccount: this.userAccount, userPassword: this.userPassword },
         r => {
           var token = r.token;
           this.$store.commit("saveToken", token);
@@ -66,7 +66,7 @@ export default {
     },
     resetInputContent() {
       //重置表单内容
-      (this.userName = ""), (this.userPassword = "");
+      (this.userAccount = ""), (this.userPassword = "");
     }
   }
 };

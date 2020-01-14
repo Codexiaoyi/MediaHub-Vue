@@ -55,7 +55,6 @@ function apiAxios(method, url, params, success, failure) {
     withCredentials: false
   })
     .then(function (res) {
-      console.log(res);
       success(res.data)
       // if (res.data.success === true) {
       //     if (success) {
