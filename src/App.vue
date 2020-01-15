@@ -21,7 +21,7 @@
           <b-form-input id="search-input" size="sm" placeholder="搜索"></b-form-input>
         </b-nav-item>
         <b-nav-item>
-          <b-button id="login" size="sm" to="/login">{{loginString}}</b-button>
+          <b-button id="login" size="sm" @click="onChangeText()">{{loginString}}</b-button>
         </b-nav-item>
       </b-navbar-nav>
     </b-navbar>
@@ -32,32 +32,38 @@
 <script>
 //import globalUploader from "@/components/globalUploader.vue";
 import store from "../src/store/index.js";
+import Event from "../src/Event.js";
 
 export default {
   name: "app",
   data() {
     return {
-      loginString: "登录/注册",
-      token: store.token
+      loginString: store.state.ma && store.state.token ? "登出" : "登录/注册"
     };
+  },
+  methods: {
+    onChangeText() {
+      if (store.state.ma && store.state.token) {
+        window.localStorage.removeItem("Token");
+        window.localStorage.removeItem("M_A");
+        this.loginString = "登录/注册";
+        this.$router.push({ path: "/login" });
+      } else {
+        //this.$router.push({ path: "/" });
+      }
+    }
   },
   components: {},
   computed: {},
-  created() {},
-  watch: {
-    // token: {
-    //   handler(newName,oldName){
-    //     if (newName) {
-    //       this.loginString = "登录/注册"
-    //     }
-    //     else
-    //     {
-    //       this.loginString = "登出";
-    //     }
-    //   },
-    //   immediate:true
-    // },
-  }
+  created() {
+    Event.$on("notifyLoginState", state => {
+      if (state === "loginSuccess") {
+        this.loginString = "登出";
+        this.$router.push({ path: "/" });
+      }
+    });
+  },
+  watch: {}
 };
 </script>
 

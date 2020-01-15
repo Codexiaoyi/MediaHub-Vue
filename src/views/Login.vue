@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import Event from "../Event.js";
+
 export default {
   data() {
     return {
@@ -60,6 +62,8 @@ export default {
         r => {
           var token = r.token;
           this.$store.commit("saveToken", token);
+          this.$store.commit("savema", r.ma);
+          Event.$emit("notifyLoginState", "loginSuccess");
           alert("登录成功");
         }
       );

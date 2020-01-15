@@ -55,7 +55,7 @@ router.beforeEach((to, from, next) => {
         next();
     } else {
         let token = window.localStorage.getItem('Token');
-        if (token === 'null' || token === '') {
+        if (token === null || token === '' || token === "undefined") {
             window.alert("大哥，先登录吧！")
             next('/login');
         } else {
