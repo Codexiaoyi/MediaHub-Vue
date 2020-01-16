@@ -8,7 +8,7 @@ export default new Vuex.Store({
     //初始化数据
     formDatas: null,
     token: window.localStorage.getItem('Token') ? window.localStorage.getItem('Token') : "",
-    ma: null
+    ma: window.localStorage.getItem('M_A') ? window.localStorage.getItem('M_A') : "",
   },
   mutations: {
     //改变state里面值得方法
