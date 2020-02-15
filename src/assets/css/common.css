@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 主色 */
+    --primary-color: #9C27B0;
+    /* 深主色 */
+    --dark-primary-color: #7B1FA2;
+    /* 浅主色 */
+    --light-primary-color: #E1BEE7;
+    /* 深字体色 */
+    --dark-text-color: #212121;
+    /* 浅字体色 */
+    --light-text-color: #FFFFFF;
+    /* 浅背景色 */
+    --light-background-color: #F2F2F2;
+    /* 深灰色 */
+    --dark-gray-color: #757575;
+    /* 浅灰色 */
+    --light-gray-color: #DEDEDE;
+    /* 正确色 */
+    --right-color: #4CAF50;
+    /* 错误色 */
+    --error-color: #E64A19;
+    /* 字体大小 */
+    font-size: 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.05rem;
+    outline-style: none;
+    border-style: none;
+}
+
+a:hover {
+    color: var(--dark-gray-color);
+    text-decoration: none;
+}
+
+input {
+    background: none;
+    outline: none;
+    border: none;
+}
+
+button {
+    outline-style: none;
+}
+
+.m-container {
+    width: 90vw;
+    margin: 0 auto;
+}

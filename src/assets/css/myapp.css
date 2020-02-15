@@ -1,0 +1,146 @@
+@import url("common.css");
+li {
+    height: 0px;
+    margin-top: 2px;
+}
+
+/* 整个头部 */
+
+header {
+    border-bottom: solid 5px var(--primary-color);
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+    background-color: var(--light-background-color);
+}
+
+.m-navbar {
+    display: flex;
+    padding: .5rem 0;
+    align-items: center;
+}
+
+#toggle-nav {
+    display: none;
+}
+
+.m-collapse-button {
+    display: none;
+}
+
+.m-logo {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-right: 20px;
+}
+
+.m-navbar img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.m-collapse {
+    display: flex;
+    flex-grow: 1;
+}
+
+.m-links {
+    display: flex;
+    margin-right: auto;
+}
+
+.m-links li {
+    margin: 3px 10px 0 10px;
+}
+
+.m-links li a {
+    color: black;
+}
+
+.m-links li a:hover {
+    font-weight: bold;
+    color: black;
+}
+
+/* 搜索框 */
+
+.m-search {
+    background-color: white;
+    opacity: 0.9;
+    align-items: center;
+    padding-left: 10px;
+    border-radius: 3px;
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+}
+
+/* 搜索输入框 */
+
+.m-search-input {
+    font-size: 14px;
+    border-right: solid 1px var(--light-gray-color);
+}
+
+/* 搜索按钮 */
+
+.m-search button {
+    flex: 1;
+    height: 26px;
+    width: 26px;
+    border: 0;
+    background-color: white;
+}
+
+.m-login {
+    width: 75px;
+    height: 26px;
+    font-size: 0.8rem;
+    color: white;
+    background-color: var(--primary-color);
+    border-radius: 0.25rem;
+    border: 1px solid transparent;
+}
+
+.m-login:hover {
+    background-color: var(--dark-primary-color);
+}
+
+/* 响应式 */
+
+@media (max-width: 960px) {
+    .m-navbar {
+        flex-flow: row wrap;
+    }
+    .m-navbar input {
+        display: none;
+    }
+    .m-navbar input:checked+.m-collapse {
+        display: block;
+    }
+    .m-collapse {
+        display: none;
+        width: 100%;
+        flex-flow: column;
+    }
+    .m-collapse-button {
+        display: block;
+        border: solid 1px var(--light-gray-color);
+        padding: .2rem .6rem;
+        margin-top: 5px;
+        color: var(--dark-gray-color);
+        cursor: pointer;
+    }
+    .m-links {
+        flex-flow: column;
+        margin-bottom: 2rem;
+    }
+    .m-links li {
+        margin: 1rem 0;
+    }
+    .m-logo {
+        margin-right: auto;
+    }
+    .m-search {
+        width: 220px;
+        margin-bottom: 1rem;
+    }
+}
