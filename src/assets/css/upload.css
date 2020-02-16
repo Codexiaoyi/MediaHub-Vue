@@ -1,0 +1,34 @@
+@import url('common.css');
+.uploader-example {
+    padding: 15px;
+    margin: 40px auto 0;
+    font-size: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.uploader-example .uploader-btn {
+    margin-right: 4px;
+    color: white;
+    background: #8f5ca8;
+}
+
+.uploader-example .uploader-list {
+    height: 70vh;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    max-height: 440px;
+}
+
+.uploader-list .uploader-file {
+    background-color: var(--light-primary-color);
+}
+
+.uploader-list .uploader-file-progress {
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--right-color);
+    opacity: 0.8;
+}

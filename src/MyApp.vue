@@ -15,7 +15,7 @@
                 <router-link to="/home">主页</router-link>
               </li>
               <li>
-                <router-link to="/about">批量上传</router-link>
+                <router-link to="/upload">批量上传</router-link>
               </li>
               <li>
                 <router-link to="/file">文件</router-link>

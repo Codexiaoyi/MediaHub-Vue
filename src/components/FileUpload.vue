@@ -47,7 +47,7 @@ export default {
       this.upload(this.file, 0);
     },
     uploadFiles() {
-      this.$router.push({ path: "/about" });
+      this.$router.push({ path: "/upload" });
     },
     upload(file, i) {
       var name = file.name;

@@ -3,8 +3,8 @@ import qs from 'qs'
 import store from "../store/index.js";
 import router from "../router/index.js";
 
-//var root = 'http://localhost:5000/api'
-var root = 'http://47.106.139.187:5003/api'
+var root = 'http://localhost:5000/api'
+//var root = 'http://47.106.139.187:5003/api'
 
 //引用axios
 var axios = require('axios')

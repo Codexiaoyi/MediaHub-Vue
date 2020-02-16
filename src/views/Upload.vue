@@ -1,20 +1,23 @@
 <template>
-  <uploader
-    :options="options"
-    :file-status-text="statusText"
-    @file-complete="fileComplete"
-    @complete="complete"
-    class="uploader-example"
-  >
-    <uploader-unsupport></uploader-unsupport>
-    <uploader-drop>
-      <p>文件拖放至此处或</p>
-      <uploader-btn>选择文件</uploader-btn>
-      <uploader-btn :attrs="attrs">选择图片</uploader-btn>
-      <!-- <uploader-btn :directory="true">选择文件夹</uploader-btn> -->
-    </uploader-drop>
-    <uploader-list></uploader-list>
-  </uploader>
+  <div class="m-container">
+    <uploader
+      :options="options"
+      :file-status-text="statusText"
+      @file-complete="fileComplete"
+      @complete="complete"
+      class="uploader-example"
+      ref="uploader"
+    >
+      <uploader-unsupport></uploader-unsupport>
+      <uploader-drop>
+        <p>文件拖放至此处或</p>
+        <uploader-btn>选择文件</uploader-btn>
+        <uploader-btn :attrs="attrs">选择图片</uploader-btn>
+        <!-- <uploader-btn :directory="true">选择文件夹</uploader-btn> -->
+      </uploader-drop>
+      <uploader-list></uploader-list>
+    </uploader>
+  </div>
 </template>
 
 <script>
@@ -44,10 +47,8 @@ export default {
   methods: {
     //整体上传完成
     complete() {
-      //console.log("complete", arguments);
     },
     fileComplete() {
-      //console.log("file complete", arguments);
       const file = arguments[0].file;
       this.$api.post(
         "/file/upload/merge",
@@ -66,25 +67,10 @@ export default {
 };
 </script>
 
+
 <style lang="scss" scoped>
-.uploader-example {
-  width: 80%;
-  padding: 15px;
-  margin: 40px auto 0;
-  font-size: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-.uploader-example .uploader-btn {
-  margin-right: 4px;
-  color: white;
-  background: #8f5ca8;
-}
-.uploader-example .uploader-list {
-  max-height: 440px;
-  overflow: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
+@import url("../assets/css/upload.css");
+
 /deep/.uploader-file-icon {
   &:before {
     content: "" !important;
