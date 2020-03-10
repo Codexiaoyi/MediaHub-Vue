@@ -1,5 +1,5 @@
 @import url("common.css");
-.m-image-wall {
+.t-image-wall {
     margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -7,7 +7,7 @@
     justify-items: center;
 }
 
-.m-image {
+.t-image {
     position: relative;
     height: 93%;
     width: 93%;
@@ -15,17 +15,17 @@
     border-radius: 5px;
 }
 
-.m-image div {
+.t-image div {
     border-radius: 5px;
 }
 
-.m-image img {
+.t-image img {
     height: 100%;
     width: 100%;
     border-radius: 5px;
 }
 
-.m-image .m-shade {
+.t-image .t-shade {
     position: absolute;
     background-color: var(--dark-background-color);
     top: 0;
@@ -40,7 +40,7 @@
     align-items: center;
 }
 
-.m-image .m-watch {
+.t-image .t-watch {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -48,17 +48,17 @@
     left: 0;
 }
 
-.m-image:hover {
+.t-image:hover {
     height: 90%;
     width: 90%;
 }
 
-.m-shade:hover {
+.t-shade:hover {
     opacity: 0.4;
     transition: ease-in 0.3s;
 }
 
-.m-shade i {
+.t-shade i {
     position: absolute;
     flex: 1;
     color: var(--light-background-color);
@@ -66,31 +66,31 @@
 }
 
 @media (min-width:1920px) {
-    .m-image-wall {
+    .t-image-wall {
         grid-template-columns: repeat(6, 1fr);
     }
 }
 
 @media (max-width:1400px) {
-    .m-image-wall {
+    .t-image-wall {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width:960px) {
-    .m-image-wall {
+    .t-image-wall {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width:768px) {
-    .m-image-wall {
+    .t-image-wall {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width:550px) {
-    .m-image-wall {
+    .t-image-wall {
         grid-template-columns: repeat(1, 1fr);
     }
 }

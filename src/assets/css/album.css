@@ -1,0 +1,31 @@
+@import url("common.css");
+.t-album-wall {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.t-album{
+    margin: 10px;
+    position: relative;
+    border: solid 1px var(--light-gray-color);
+    border-radius: 5px;
+    width: 220px;
+    height: 300px;
+}
+
+.t-album:hover {
+    margin: 5px;
+}
+
+.t-album-image{
+    display: flex;
+    height: 175px;
+    border-bottom: solid 1px var(--light-gray-color);
+}
+
+.t-album img {
+    width: 100%;
+}

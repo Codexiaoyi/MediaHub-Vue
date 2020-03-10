@@ -19,9 +19,9 @@ export default new Vuex.Store({
       state.token = data;
       window.localStorage.setItem("Token", data);//保存到本地
     },
-    savema(state, data) {
+    saveAmigo(state, data) {
       state.ma = data,
-        window.localStorage.setItem("M_A", data);//保存到本地
+        window.localStorage.setItem("Amigo", data);//保存到本地
     }
   },
   actions: {

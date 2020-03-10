@@ -1,34 +1,47 @@
 @import url('common.css');
-.uploader-example {
+
+.t-upload {
+    position: absolute !important;
+    z-index: 100;
+    top: 0;
+    width: 100%;
     padding: 15px;
     margin: 40px auto 0;
     font-size: 12px;
+    background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
-.uploader-example .uploader-btn {
+.t-uploader .uploader-btn {
     margin-right: 4px;
     color: white;
     background: #8f5ca8;
 }
 
-.uploader-example .uploader-list {
-    height: 70vh;
+.t-uploader .uploader-list {
     overflow: auto;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
-    max-height: 440px;
+    max-height: 800px;
+}
+
+.uploader-list ul>li {
+    height: 49px;
 }
 
 .uploader-list .uploader-file {
     background-color: var(--light-primary-color);
 }
 
-.uploader-list .uploader-file-progress {
+.uploader-file .uploader-file-progress {
     height: 3px;
     position: absolute;
     bottom: 0;
     background-color: var(--right-color);
-    opacity: 0.8;
+    opacity: .7;
+}
+
+.uploader-file[status=error] .uploader-file-progress {
+    background-color: var(--error-color) !important;
 }

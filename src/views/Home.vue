@@ -1,22 +1,21 @@
 <template>
-  <div class="home">
-    <div class="m-container">
-      <div class="m-image-wall">
-        <div class="m-image" v-for="msrc in msrcs" :key="msrc.id">
-          <img :src="msrc" alt />
-          <a class="m-watch" :href="msrc" target="view_blank">
-            <div class="m-shade">
-              <i class="fa fa-camera-retro fa-4x" aria-hidden="true"></i>
-            </div>
-          </a>
-        </div>
+  <div class="t-container">
+    <!-- <Upload></Upload> -->
+    <div class="t-image-wall">
+      <div class="t-image" v-for="msrc in msrcs" :key="msrc.id">
+        <img :src="msrc" alt />
+        <a class="t-watch" :href="msrc" target="view_blank">
+          <div class="t-shade">
+            <i class="fa fa-camera-retro fa-4x" aria-hidden="true"></i>
+          </div>
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Bus from "@/assets/js/bus";
+import Upload from "../components/Upload.vue";
 
 export default {
   name: "home",
@@ -26,25 +25,10 @@ export default {
       msrcs: ["https://picsum.photos/250/250/?image=60"]
     };
   },
-  mounted() {
-    // 文件选择后的回调
-    Bus.$on("fileAdded", () => {
-      console.log("文件已选择");
-    });
-
-    // 文件上传成功的回调
-    Bus.$on("fileSuccess", () => {
-      console.log("文件上传成功");
-    });
-  },
   computed: {},
-  methods: {
-    upload() {
-      // 打开文件选择框
-      Bus.$emit("openUploader", {
-        id: "1111" // 传入的参数
-      });
-    }
+  methods: {},
+  components: {
+    Upload
   },
   created() {
     let imageSrc = new Array();
@@ -52,10 +36,6 @@ export default {
       imageSrc.push("https://picsum.photos/500/500/?image=" + i.toString());
     }
     this.msrcs = imageSrc;
-  },
-  destroyed() {
-    Bus.$off("fileAdded");
-    Bus.$off("fileSuccess");
   }
 };
 </script>

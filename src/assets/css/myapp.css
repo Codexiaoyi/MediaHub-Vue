@@ -12,7 +12,7 @@ header {
     background-color: var(--light-background-color);
 }
 
-.m-navbar {
+.t-navbar {
     display: flex;
     padding: .5rem 0;
     align-items: center;
@@ -22,47 +22,47 @@ header {
     display: none;
 }
 
-.m-collapse-button {
+.t-collapse-button {
     display: none;
 }
 
-.m-logo {
+.t-logo {
     font-weight: bold;
     font-size: 2rem;
     margin-right: 20px;
 }
 
-.m-navbar img {
+.t-navbar img {
     width: 50px;
     margin-right: 10px;
 }
 
-.m-collapse {
+.t-collapse {
     display: flex;
     flex-grow: 1;
 }
 
-.m-links {
+.t-links {
     display: flex;
     margin-right: auto;
 }
 
-.m-links li {
+.t-links li {
     margin: 3px 10px 0 10px;
 }
 
-.m-links li a {
+.t-links li a {
     color: black;
 }
 
-.m-links li a:hover {
+.t-links li a:hover {
     font-weight: bold;
     color: black;
 }
 
 /* 搜索框 */
 
-.m-search {
+.t-search {
     background-color: white;
     opacity: 0.9;
     align-items: center;
@@ -75,14 +75,14 @@ header {
 
 /* 搜索输入框 */
 
-.m-search-input {
+.t-search-input {
     font-size: 14px;
     border-right: solid 1px var(--light-gray-color);
 }
 
 /* 搜索按钮 */
 
-.m-search button {
+.t-search button {
     flex: 1;
     height: 26px;
     width: 26px;
@@ -91,7 +91,7 @@ header {
     outline-style: none;
 }
 
-.m-login {
+.t-login {
     width: 75px;
     height: 26px;
     font-size: 0.8rem;
@@ -101,28 +101,28 @@ header {
     border: 1px solid transparent;
 }
 
-.m-login:hover {
+.t-login:hover {
     background-color: var(--dark-primary-color);
 }
 
 /* 响应式 */
 
 @media (max-width: 960px) {
-    .m-navbar {
+    .t-navbar {
         flex-flow: row wrap;
     }
-    .m-navbar #toggle-nav {
+    .t-navbar #toggle-nav {
         display: none;
     }
-    .m-navbar #toggle-nav:checked+.m-collapse {
+    .t-navbar #toggle-nav:checked+.m-collapse {
         display: block;
     }
-    .m-collapse {
+    .t-collapse {
         display: none;
         width: 100%;
         flex-flow: column;
     }
-    .m-collapse-button {
+    .t-collapse-button {
         display: block;
         border: solid 1px var(--light-gray-color);
         padding: .2rem .6rem;
@@ -130,17 +130,17 @@ header {
         color: var(--dark-gray-color);
         cursor: pointer;
     }
-    .m-links {
+    .t-links {
         flex-flow: column;
         margin-bottom: 2rem;
     }
-    .m-links li {
+    .t-links li {
         margin: 1rem 0;
     }
-    .m-logo {
+    .t-logo {
         margin-right: auto;
     }
-    .m-search {
+    .t-search {
         width: 220px;
         margin-bottom: 1rem;
     }

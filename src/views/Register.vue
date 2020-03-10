@@ -6,8 +6,8 @@
           <b-input-group prepend="用户名" class="mt-5">
             <b-form-input
               id="input-live"
-              v-model="userName"
-              :state="userNameState"
+              v-model="userAccount"
+              :state="userAccountState"
               placeholder="用户名不能为空"
             ></b-form-input>
           </b-input-group>
@@ -39,14 +39,14 @@
 export default {
   data() {
     return {
-      userName: "",
+      userAccount: "",
       userPassword: "",
       userEmail: ""
     };
   },
   computed: {
-    userNameState() {
-      return this.userName.length > 0 ? true : false;
+    userAccountState() {
+      return this.userAccount.length > 0 ? true : false;
     },
     userPasswordState() {
       return this.userPassword.length >= 6 ? true : false;
@@ -56,7 +56,7 @@ export default {
     confirmRegister() {
       //注册表单提交
       if (
-        this.userName == "" ||
+        this.userAccount == "" ||
         this.userPassword == "" ||
         this.userEmail == ""
       ) {
@@ -67,7 +67,7 @@ export default {
       this.$api.post(
         "user/register",
         {
-          UserName: this.userName,
+          UserAccount: this.userAccount,
           Password: this.userPassword,
           Email: this.userEmail
         },

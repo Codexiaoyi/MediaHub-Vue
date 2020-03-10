@@ -1,33 +1,36 @@
 <template>
   <div id="app">
     <header>
-      <div class="m-container">
-        <div class="m-navbar">
+      <div class="t-container">
+        <div class="t-navbar">
           <img src="@/assets/logo.png" alt />
-          <a class="m-logo" href>MediaHub</a>
-          <label class="m-collapse-button" for="toggle-nav">
+          <a class="t-logo" href>MediaHub</a>
+          <label class="t-collapse-button" for="toggle-nav">
             <i class="fa fa-bars" aria-hidden="true"></i>
           </label>
           <input id="toggle-nav" type="checkbox">
-          <div class="m-collapse">
-            <ul class="m-links">
+          <div class="t-collapse">
+            <ul class="t-links">
               <li>
-                <router-link to="/home">主页</router-link>
+                <router-link to="/home">首页</router-link>
               </li>
-              <li>
+              <!-- <li>
                 <router-link to="/upload">批量上传</router-link>
-              </li>
+              </li> -->
               <li>
                 <router-link to="/file">文件</router-link>
               </li>
+              <li>
+                <router-link to="/album">相册</router-link>
+              </li>
             </ul>
-            <div class="m-search">
-              <input class="m-search-input" type="text" placeholder="搜索" />
+            <div class="t-search">
+              <input class="t-search-input" type="text" placeholder="搜索" />
               <button>
                 <i class="fas fa-search"></i>
               </button>
             </div>
-            <button class="m-login" @click="onChangeText()">{{loginString}}</button>
+            <button class="t-login" @click="onChangeText()">{{loginString}}</button>
           </div>
         </div>
       </div>
@@ -37,9 +40,8 @@
 </template>
 
 <script>
-//import globalUploader from "@/components/globalUploader.vue";
 import store from "../src/store/index.js";
-import Event from "../src/Event.js";
+import event from "../src/assets/js/event.js";
 
 export default {
   name: "app",
@@ -63,7 +65,7 @@ export default {
   components: {},
   computed: {},
   created() {
-    Event.$on("notifyLoginState", state => {
+     event.$on("notifyLoginState", state => {
       if (state === "loginSuccess") {
         this.loginString = "登出";
         this.$router.push({ path: "/" });

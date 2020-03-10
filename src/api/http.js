@@ -3,8 +3,8 @@ import qs from 'qs'
 import store from "../store/index.js";
 import router from "../router/index.js";
 
-//var root = 'http://localhost:5000/api'
-var root = 'http://47.106.139.187:5003/api'
+var root = 'http://localhost:5000/api'
+//var root = 'http://47.106.139.187:5003/api'
 
 //引用axios
 var axios = require('axios')
@@ -45,10 +45,11 @@ axios.interceptors.response.use(
 );
 
 //接口处理函数
-function apiAxios(method, url, params, success, failure) {
+function apiAxios(method, url, params, success, failure, responseType) {
   axios({
     method: method,
     url: url,
+    responseType: responseType,
     data: method == 'POST' || method == 'PUT' ? params : null,
     params: method === 'GET' || method === 'DELETE' ? params : null,
     baseURL: root,
@@ -80,8 +81,11 @@ export default {
   getRoot: function () {
     return root
   },
-  get: function (url, params, success, failure) {
-    return apiAxios('GET', url, params, success, failure)
+  get: function (url, params, success, failure, responseType) {
+    if (responseType == null) {
+      responseType = 'json'
+    }
+    return apiAxios('GET', url, params, success, failure, responseType)
   },
   post: function (url, params, success, failure) {
     return apiAxios('POST', url, params, success, failure)

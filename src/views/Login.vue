@@ -19,6 +19,10 @@
               placeholder="密码不能少于6位"
             ></b-form-input>
           </b-input-group>
+          <h6 class="register-tip">
+            还没有注册账号？
+            <router-link to="/register">免费注册。</router-link>
+          </h6>
           <b-button class="mt-4" size="md" variant="success" @click="confirmLogin()">登录</b-button>
           <b-button class="mt-4 ml-2" size="md" variant="danger" @click="resetInputContent()">重置</b-button>
         </b-col>
@@ -28,7 +32,7 @@
 </template>
 
 <script>
-import Event from "../Event.js";
+import event from "../assets/js/event.js";
 
 export default {
   data() {
@@ -62,8 +66,8 @@ export default {
         r => {
           var token = r.token;
           this.$store.commit("saveToken", token);
-          this.$store.commit("savema", r.ma);
-          Event.$emit("notifyLoginState", "loginSuccess");
+          this.$store.commit("saveAmigo", r.amigo);
+          event.$emit("notifyLoginState", "loginSuccess");
           alert("登录成功");
         }
       );
@@ -75,3 +79,14 @@ export default {
   }
 };
 </script>
+
+<style>
+.register-tip {
+  margin-top: 10px;
+
+}
+.register-tip a {
+  font-size: 14.5px;
+  color: blue;
+}
+</style>

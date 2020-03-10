@@ -1,14 +1,13 @@
 <template>
-  <div class="m-container">
+  <div class="t-upload">
     <uploader
       :options="options"
       :file-status-text="statusText"
       @file-complete="fileComplete"
       @complete="complete"
-      class="uploader-example"
+      class="t-uploader"
       ref="uploader"
     >
-      <uploader-unsupport></uploader-unsupport>
       <uploader-drop>
         <p>文件拖放至此处或</p>
         <uploader-btn>选择文件</uploader-btn>
@@ -46,8 +45,7 @@ export default {
   },
   methods: {
     //整体上传完成
-    complete() {
-    },
+    complete() {},
     fileComplete() {
       const file = arguments[0].file;
       this.$api.post(
@@ -75,14 +73,14 @@ export default {
   &:before {
     content: "" !important;
   }
-  &[icon="image"] {
-    background: url(./images/image-icon.png);
-  }
-  &[icon="video"] {
-    background: url(./images/video-icon.png);
-  }
-  &[icon="document"] {
-    background: url(./images/text-icon.png);
-  }
+  // &[icon="image"] {
+  //   background: url(./images/image-icon.png);
+  // }
+  // &[icon="video"] {
+  //   background: url(./images/video-icon.png);
+  // }
+  // &[icon="document"] {
+  //   background: url(./images/text-icon.png);
+  // }
 }
 </style>
